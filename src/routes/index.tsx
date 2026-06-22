@@ -26,27 +26,37 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "AliShip Logistics | Fast Courier & Parcel Delivery Across Kenya" },
       {
         property: "og:description",
-        content:
-          "Same-day parcel pickups, real-time tracking and proof of delivery across Kenya.",
+        content: "Same-day parcel pickups, real-time tracking and proof of delivery across Kenya.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://aliship.co.ke" },        // ✅ fixed
       { property: "og:image", content: heroAsset },
       { name: "twitter:image", content: heroAsset },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: "https://aliship.co.ke" },             // ✅ fixed
       { rel: "preload", as: "image", href: heroAsset, fetchpriority: "high" },
     ],
     scripts: [
+      // ✅ NEW — tells Google the site name
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "AliShip Logistics",
+          "url": "https://aliship.co.ke",
+        }),
+      },
+      // ✅ fixed URLs in LocalBusiness
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "@id": "/#aliship",
+          "@id": "https://aliship.co.ke/#aliship",                     // ✅ fixed
           additionalType: "https://schema.org/CourierService",
           name: "AliShip Logistics Limited",
-          url: "/",
+          url: "https://aliship.co.ke",                                // ✅ fixed
           telephone: "+254100293388",
           email: "logistics.aliship@gmail.com",
           areaServed: [
@@ -56,8 +66,7 @@ export const Route = createFileRoute("/")({
           ],
           address: {
             "@type": "PostalAddress",
-            streetAddress:
-              "Philadelphia House, Shop 525, Tom Mboya Street & Hakati Road",
+            streetAddress: "Philadelphia House, Shop 525, Tom Mboya Street & Hakati Road",
             addressLocality: "Nairobi",
             addressCountry: "KE",
           },
