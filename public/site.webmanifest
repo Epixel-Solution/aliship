@@ -1,0 +1,12 @@
+{
+  "name": "AliShip Logistics",
+  "short_name": "AliShip",
+  "description": "Fast courier and parcel delivery across Kenya.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FF6600",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
